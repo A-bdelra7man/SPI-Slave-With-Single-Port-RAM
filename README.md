@@ -2,6 +2,11 @@
 
 A Verilog implementation of an SPI (Serial Peripheral Interface) slave module interfaced with a single-port synchronous RAM, designed for FPGA deployment with comprehensive verification and timing optimization.
 
+## 👥 Team: Register United
+- **Mohamed Karam Mohamed**
+- **Mohamed Amr Abdelhafeez**
+- **Abdelrahman Mahmoud**
+
 ## 📋 Project Overview
 
 This project implements a complete SPI slave communication system that interfaces with a single-port RAM module. The design allows external masters to read from and write to memory through the standardized SPI protocol, making it suitable for embedded systems and FPGA-based applications.
@@ -74,56 +79,6 @@ The SPI slave operates using a finite state machine with the following states:
 
 ### 🔬 Simulation
 
-# In QuestaSim:
 ```bash
+# In QuestaSim:
 vsim -do run.do
-```
-
-### 🛠️ FPGA Implementation
-
-1. **Synthesis**: The design supports multiple FSM encodings
-2. **Implementation**: Choose encoding based on timing reports
-3. **Constraints**: Map signals to FPGA pins using provided constraints
-4. **Bitstream**: Generate and deploy to target FPGA
-
-### 📍 Pin Mapping
-
-- `rst_n`: Connected to switch
-- `SS_n`: Connected to switch  
-- `MOSI`: Connected to switch
-- `MISO`: Connected to LED
-
-## 💡 Operation Examples
-
-### ✍️ Write Operation
-1. Send write address (din[9:8] = 00, din[7:0] = address)
-2. Send write data (din[9:8] = 01, din[7:0] = data)
-3. Data is stored at specified address
-
-### 📖 Read Operation
-1. Send read address (din[9:8] = 10, din[7:0] = address)
-2. Send read command (din[9:8] = 11)
-3. Data appears on MISO during read command when tx_valid is high
-
-## ⚙️ Parameters
-
-### 💾 RAM Parameters
-- `MEM_DEPTH`: Memory depth (default: 256)
-- `ADDR_SIZE`: Address width (default: 8)
-
-## 🛠️ Requirements
-
-### 🔧 Tools
-- QuestaSim/ModelSim for simulation
-- Vivado for FPGA implementation
-- QuestaLint for code analysis
-
-## 📚 Documentation
-
-Complete project documentation includes:
-- Simulation waveforms
-- Synthesis reports
-- Implementation reports
-- Timing analysis
-- Resource utilization
-- Critical path analysis
